@@ -28,7 +28,7 @@ const Shop = () => {
         setCart(savedCart)
     },[products])
 
-    const handleAddToProduct = (product) =>{
+    const handleAddToCart = (product) =>{
         let  newCart = []
         const exists = cart.find(pd => pd.id == product.id)
         if(!exists){
@@ -50,12 +50,12 @@ const Shop = () => {
                 products.map(product => <Product
                 key={product.id}
                 product={product}
-                handleAddToProduct={handleAddToProduct}
+                handleAddToProduct={handleAddToCart}
                 > </Product>)
               }
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart key={cart.quantity}  cart={cart}></Cart>
             </div>
         </div>
     );
